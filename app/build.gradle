@@ -1,6 +1,12 @@
 apply plugin: 'com.android.library'
 apply plugin: 'com.google.protobuf'
 
+ext {
+    PUBLISH_GROUP_ID = 'com.spaceuptech.clientapi'
+    PUBLISH_ARTIFACT_ID = 'client-api'
+    PUBLISH_VERSION = '0.1.0'
+}
+
 android {
     compileSdkVersion 25
     buildToolsVersion "26.0.1"
@@ -30,3 +36,4 @@ dependencies {
     compile group: 'com.google.code.gson', name: 'gson', version: '2.7'
     testCompile 'junit:junit:4.12'
 }
+apply from: 'https://raw.githubusercontent.com/blundell/release-android-library/master/android-release-aar.gradle'
