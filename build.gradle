@@ -1,5 +1,5 @@
 // Top-level build file where you can add configuration options common to all sub-projects/modules.
-
+// ./gradlew clean build generateRelease # Run this on terminal to generate release file
 buildscript {
     repositories {
         jcenter()
