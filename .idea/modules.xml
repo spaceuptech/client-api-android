@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file:///media/noorain/Noorain/space-up/android/ClientApi/ClientApi.iml" filepath="/media/noorain/Noorain/space-up/android/ClientApi/ClientApi.iml" />
+      <module fileurl="file:///media/noorain/Noorain/space-up/android/ClientApi/app/app.iml" filepath="/media/noorain/Noorain/space-up/android/ClientApi/app/app.iml" />
+    </modules>
+  </component>
+</project>
