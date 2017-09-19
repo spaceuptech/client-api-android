@@ -38,7 +38,7 @@ public class ClientApi {
     private boolean isConnected = false, hasRequested = false;
     private WebSocket socket;
 
-    ClientApi(String host, int port, boolean sslEnable, OnMessageReceived onMessageReceived, OnConnected onConnected, OnDisconnected onDisconnected) {
+    public ClientApi(String host, int port, boolean sslEnable, OnMessageReceived onMessageReceived, OnConnected onConnected, OnDisconnected onDisconnected) {
         ws = "ws://" + host;
         if (sslEnable) {
             ws = "wss://" + host;
