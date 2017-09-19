@@ -251,15 +251,15 @@ public class ClientApi {
         }
     }
 
-    interface OnMessageReceived {
+    public interface OnMessageReceived {
         void messageReceived(Request message);
     }
 
-    interface OnConnected {
+    public interface OnConnected {
         void connected();
     }
 
-    interface OnDisconnected {
+    public interface OnDisconnected {
         void disconnected();
     }
 
