@@ -19,6 +19,7 @@ import com.neovisionaries.ws.client.WebSocketListener;
 import com.neovisionaries.ws.client.WebSocketState;
 
 import java.io.IOException;
+import java.security.NoSuchAlgorithmException;
 import java.util.List;
 import java.util.Map;
 
@@ -65,10 +66,9 @@ public class ClientApi {
 
         @Override
         public void onConnected(WebSocket websocket, Map<String, List<String>> headers) {
-            Log.d("api", "connected");
-
             hasRequested = false;
             isConnected = true;
+            Log.d("Client API", "Connected to server");
             if (onConnected != null)
                 onConnected.connected();
         }
@@ -78,6 +78,7 @@ public class ClientApi {
             hasRequested = false;
             isConnected = false;
             Thread.sleep(5000);
+            Log.d("Client API", "Disconnected from server");
             onDisconnected.disconnected();
             /*try {
                 if (!hasRequested) {
@@ -94,6 +95,7 @@ public class ClientApi {
         public void onDisconnected(WebSocket websocket, WebSocketFrame serverCloseFrame, WebSocketFrame clientCloseFrame, boolean closedByServer) throws InterruptedException {
             isConnected = false;
             Thread.sleep(5000);
+            Log.d("Client API", "Disconnected from server");
             onDisconnected.disconnected();/*
             try {
                 if (!hasRequested) {
@@ -146,9 +148,6 @@ public class ClientApi {
 
         @Override
         public void onBinaryMessage(WebSocket websocket, byte[] binary) throws Exception {
-            Log.d("api", "connected");
-            System.out.println("I got some bytes!");
-
             // Invoke user callback
             if (onMessageReceived != null) {
                 Schema.Message message = Schema.Message.parseFrom(binary);
@@ -240,12 +239,12 @@ public class ClientApi {
     public void connect() {
         if (!isConnected && !hasRequested) {
             hasRequested = true;
-            Log.d("API", "Connecting to server");
+            Log.d("Client API", "Connecting to server");
             try {
-                socket = new WebSocketFactory().setVerifyHostname(sslAuthenticateHost).createSocket(ws);
+                socket = new WebSocketFactory().setSSLContext(NaiveSSLContext.getInstance("TLS")).setVerifyHostname(sslAuthenticateHost).createSocket(ws);
                 socket.connectAsynchronously();
                 socket.addListener(listener);
-            } catch (IOException e) {
+            } catch (IOException | NoSuchAlgorithmException e) {
                 e.printStackTrace();
             }
         }
@@ -264,8 +263,8 @@ public class ClientApi {
     }
 
     public class Request {
-        String engine, func;
-        byte[] args;
+        public String engine, func;
+        public byte[] args;
 
         Request(String engine, String func, byte[] args) {
             this.engine = engine;

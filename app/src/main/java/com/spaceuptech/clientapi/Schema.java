@@ -66,7 +66,7 @@ public final class Schema {
             data_ = com.google.protobuf.ByteString.EMPTY;
         }
 
-        @java.lang.Override
+        @Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
@@ -140,7 +140,7 @@ public final class Schema {
             return com.spaceuptech.clientapi.Schema.internal_static_schema_Message_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.spaceuptech.clientapi.Schema.internal_static_schema_Message_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -195,7 +195,7 @@ public final class Schema {
             /**
              * @deprecated Use {@link #forNumber(int)} instead.
              */
-            @java.lang.Deprecated
+            @Deprecated
             public static Type valueOf(int value) {
                 return forNumber(value);
             }
@@ -240,7 +240,7 @@ public final class Schema {
             public static Type valueOf(
                     com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
                 if (desc.getType() != getDescriptor()) {
-                    throw new java.lang.IllegalArgumentException(
+                    throw new IllegalArgumentException(
                             "EnumValueDescriptor is not for this type.");
                 }
                 return VALUES[desc.getIndex()];
@@ -364,8 +364,8 @@ public final class Schema {
             return size;
         }
 
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
+        @Override
+        public boolean equals(final Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -393,7 +393,7 @@ public final class Schema {
             return result;
         }
 
-        @java.lang.Override
+        @Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -499,9 +499,9 @@ public final class Schema {
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @java.lang.Override
+        @Override
         protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
@@ -517,7 +517,7 @@ public final class Schema {
                 return com.spaceuptech.clientapi.Schema.internal_static_schema_Message_descriptor;
             }
 
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            protected FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.spaceuptech.clientapi.Schema.internal_static_schema_Message_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -530,7 +530,7 @@ public final class Schema {
             }
 
             private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -602,7 +602,7 @@ public final class Schema {
             }
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return (Builder) super.setField(field, value);
             }
             public Builder clearField(
@@ -615,12 +615,12 @@ public final class Schema {
             }
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
+                    int index, Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
             public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -891,7 +891,7 @@ public final class Schema {
             return DEFAULT_INSTANCE;
         }
 
-        @java.lang.Deprecated public static final com.google.protobuf.Parser<Message>
+        @Deprecated public static final com.google.protobuf.Parser<Message>
                 PARSER = new com.google.protobuf.AbstractParser<Message>() {
             public Message parsePartialFrom(
                     com.google.protobuf.CodedInputStream input,
@@ -905,7 +905,7 @@ public final class Schema {
             return PARSER;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Parser<Message> getParserForType() {
             return PARSER;
         }
@@ -927,7 +927,7 @@ public final class Schema {
         /**
          * <code>required string engine = 1;</code>
          */
-        java.lang.String getEngine();
+        String getEngine();
         /**
          * <code>required string engine = 1;</code>
          */
@@ -941,7 +941,7 @@ public final class Schema {
         /**
          * <code>required string func = 2;</code>
          */
-        java.lang.String getFunc();
+        String getFunc();
         /**
          * <code>required string func = 2;</code>
          */
@@ -975,7 +975,7 @@ public final class Schema {
             args_ = com.google.protobuf.ByteString.EMPTY;
         }
 
-        @java.lang.Override
+        @Override
         public final com.google.protobuf.UnknownFieldSet
         getUnknownFields() {
             return this.unknownFields;
@@ -1037,7 +1037,7 @@ public final class Schema {
             return com.spaceuptech.clientapi.Schema.internal_static_schema_Faas_descriptor;
         }
 
-        protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        protected FieldAccessorTable
         internalGetFieldAccessorTable() {
             return com.spaceuptech.clientapi.Schema.internal_static_schema_Faas_fieldAccessorTable
                     .ensureFieldAccessorsInitialized(
@@ -1046,7 +1046,7 @@ public final class Schema {
 
         private int bitField0_;
         public static final int ENGINE_FIELD_NUMBER = 1;
-        private volatile java.lang.Object engine_;
+        private volatile Object engine_;
         /**
          * <code>required string engine = 1;</code>
          */
@@ -1056,14 +1056,14 @@ public final class Schema {
         /**
          * <code>required string engine = 1;</code>
          */
-        public java.lang.String getEngine() {
-            java.lang.Object ref = engine_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
+        public String getEngine() {
+            Object ref = engine_;
+            if (ref instanceof String) {
+                return (String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     engine_ = s;
                 }
@@ -1075,11 +1075,11 @@ public final class Schema {
          */
         public com.google.protobuf.ByteString
         getEngineBytes() {
-            java.lang.Object ref = engine_;
-            if (ref instanceof java.lang.String) {
+            Object ref = engine_;
+            if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 engine_ = b;
                 return b;
             } else {
@@ -1088,7 +1088,7 @@ public final class Schema {
         }
 
         public static final int FUNC_FIELD_NUMBER = 2;
-        private volatile java.lang.Object func_;
+        private volatile Object func_;
         /**
          * <code>required string func = 2;</code>
          */
@@ -1098,14 +1098,14 @@ public final class Schema {
         /**
          * <code>required string func = 2;</code>
          */
-        public java.lang.String getFunc() {
-            java.lang.Object ref = func_;
-            if (ref instanceof java.lang.String) {
-                return (java.lang.String) ref;
+        public String getFunc() {
+            Object ref = func_;
+            if (ref instanceof String) {
+                return (String) ref;
             } else {
                 com.google.protobuf.ByteString bs =
                         (com.google.protobuf.ByteString) ref;
-                java.lang.String s = bs.toStringUtf8();
+                String s = bs.toStringUtf8();
                 if (bs.isValidUtf8()) {
                     func_ = s;
                 }
@@ -1117,11 +1117,11 @@ public final class Schema {
          */
         public com.google.protobuf.ByteString
         getFuncBytes() {
-            java.lang.Object ref = func_;
-            if (ref instanceof java.lang.String) {
+            Object ref = func_;
+            if (ref instanceof String) {
                 com.google.protobuf.ByteString b =
                         com.google.protobuf.ByteString.copyFromUtf8(
-                                (java.lang.String) ref);
+                                (String) ref);
                 func_ = b;
                 return b;
             } else {
@@ -1196,8 +1196,8 @@ public final class Schema {
             return size;
         }
 
-        @java.lang.Override
-        public boolean equals(final java.lang.Object obj) {
+        @Override
+        public boolean equals(final Object obj) {
             if (obj == this) {
                 return true;
             }
@@ -1226,7 +1226,7 @@ public final class Schema {
             return result;
         }
 
-        @java.lang.Override
+        @Override
         public int hashCode() {
             if (memoizedHashCode != 0) {
                 return memoizedHashCode;
@@ -1332,9 +1332,9 @@ public final class Schema {
                     ? new Builder() : new Builder().mergeFrom(this);
         }
 
-        @java.lang.Override
+        @Override
         protected Builder newBuilderForType(
-                com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                BuilderParent parent) {
             Builder builder = new Builder(parent);
             return builder;
         }
@@ -1350,7 +1350,7 @@ public final class Schema {
                 return com.spaceuptech.clientapi.Schema.internal_static_schema_Faas_descriptor;
             }
 
-            protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+            protected FieldAccessorTable
             internalGetFieldAccessorTable() {
                 return com.spaceuptech.clientapi.Schema.internal_static_schema_Faas_fieldAccessorTable
                         .ensureFieldAccessorsInitialized(
@@ -1363,7 +1363,7 @@ public final class Schema {
             }
 
             private Builder(
-                    com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+                    BuilderParent parent) {
                 super(parent);
                 maybeForceBuilderInitialization();
             }
@@ -1426,7 +1426,7 @@ public final class Schema {
             }
             public Builder setField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return (Builder) super.setField(field, value);
             }
             public Builder clearField(
@@ -1439,12 +1439,12 @@ public final class Schema {
             }
             public Builder setRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    int index, java.lang.Object value) {
+                    int index, Object value) {
                 return (Builder) super.setRepeatedField(field, index, value);
             }
             public Builder addRepeatedField(
                     com.google.protobuf.Descriptors.FieldDescriptor field,
-                    java.lang.Object value) {
+                    Object value) {
                 return (Builder) super.addRepeatedField(field, value);
             }
             public Builder mergeFrom(com.google.protobuf.Message other) {
@@ -1505,7 +1505,7 @@ public final class Schema {
             }
             private int bitField0_;
 
-            private java.lang.Object engine_ = "";
+            private Object engine_ = "";
             /**
              * <code>required string engine = 1;</code>
              */
@@ -1515,18 +1515,18 @@ public final class Schema {
             /**
              * <code>required string engine = 1;</code>
              */
-            public java.lang.String getEngine() {
-                java.lang.Object ref = engine_;
-                if (!(ref instanceof java.lang.String)) {
+            public String getEngine() {
+                Object ref = engine_;
+                if (!(ref instanceof String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         engine_ = s;
                     }
                     return s;
                 } else {
-                    return (java.lang.String) ref;
+                    return (String) ref;
                 }
             }
             /**
@@ -1534,11 +1534,11 @@ public final class Schema {
              */
             public com.google.protobuf.ByteString
             getEngineBytes() {
-                java.lang.Object ref = engine_;
+                Object ref = engine_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
+                                    (String) ref);
                     engine_ = b;
                     return b;
                 } else {
@@ -1549,7 +1549,7 @@ public final class Schema {
              * <code>required string engine = 1;</code>
              */
             public Builder setEngine(
-                    java.lang.String value) {
+                    String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1581,7 +1581,7 @@ public final class Schema {
                 return this;
             }
 
-            private java.lang.Object func_ = "";
+            private Object func_ = "";
             /**
              * <code>required string func = 2;</code>
              */
@@ -1591,18 +1591,18 @@ public final class Schema {
             /**
              * <code>required string func = 2;</code>
              */
-            public java.lang.String getFunc() {
-                java.lang.Object ref = func_;
-                if (!(ref instanceof java.lang.String)) {
+            public String getFunc() {
+                Object ref = func_;
+                if (!(ref instanceof String)) {
                     com.google.protobuf.ByteString bs =
                             (com.google.protobuf.ByteString) ref;
-                    java.lang.String s = bs.toStringUtf8();
+                    String s = bs.toStringUtf8();
                     if (bs.isValidUtf8()) {
                         func_ = s;
                     }
                     return s;
                 } else {
-                    return (java.lang.String) ref;
+                    return (String) ref;
                 }
             }
             /**
@@ -1610,11 +1610,11 @@ public final class Schema {
              */
             public com.google.protobuf.ByteString
             getFuncBytes() {
-                java.lang.Object ref = func_;
+                Object ref = func_;
                 if (ref instanceof String) {
                     com.google.protobuf.ByteString b =
                             com.google.protobuf.ByteString.copyFromUtf8(
-                                    (java.lang.String) ref);
+                                    (String) ref);
                     func_ = b;
                     return b;
                 } else {
@@ -1625,7 +1625,7 @@ public final class Schema {
              * <code>required string func = 2;</code>
              */
             public Builder setFunc(
-                    java.lang.String value) {
+                    String value) {
                 if (value == null) {
                     throw new NullPointerException();
                 }
@@ -1715,7 +1715,7 @@ public final class Schema {
             return DEFAULT_INSTANCE;
         }
 
-        @java.lang.Deprecated public static final com.google.protobuf.Parser<Faas>
+        @Deprecated public static final com.google.protobuf.Parser<Faas>
                 PARSER = new com.google.protobuf.AbstractParser<Faas>() {
             public Faas parsePartialFrom(
                     com.google.protobuf.CodedInputStream input,
@@ -1729,7 +1729,7 @@ public final class Schema {
             return PARSER;
         }
 
-        @java.lang.Override
+        @Override
         public com.google.protobuf.Parser<Faas> getParserForType() {
             return PARSER;
         }
@@ -1758,7 +1758,7 @@ public final class Schema {
     private static  com.google.protobuf.Descriptors.FileDescriptor
             descriptor;
     static {
-        java.lang.String[] descriptorData = {
+        String[] descriptorData = {
                 "\n\014schema.proto\022\006schema\"\210\001\n\007Message\022\"\n\004ty" +
                         "pe\030\001 \002(\0162\024.schema.Message.Type\022\014\n\004data\030\002" +
                         " \001(\014\022\032\n\004faas\030\003 \001(\0132\014.schema.Faas\"/\n\004Type" +
@@ -1784,13 +1784,13 @@ public final class Schema {
         internal_static_schema_Message_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_schema_Message_descriptor,
-                new java.lang.String[] { "Type", "Data", "Faas", });
+                new String[] { "Type", "Data", "Faas", });
         internal_static_schema_Faas_descriptor =
                 getDescriptor().getMessageTypes().get(1);
         internal_static_schema_Faas_fieldAccessorTable = new
                 com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
                 internal_static_schema_Faas_descriptor,
-                new java.lang.String[] { "Engine", "Func", "Args", });
+                new String[] { "Engine", "Func", "Args", });
     }
 
     // @@protoc_insertion_point(outer_class_scope)
