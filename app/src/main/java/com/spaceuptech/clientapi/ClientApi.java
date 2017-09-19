@@ -1,5 +1,11 @@
 package com.spaceuptech.clientapi;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
 import com.google.gson.Gson;
@@ -17,6 +23,9 @@ import java.util.List;
 import java.util.Map;
 
 public class ClientApi {
+
+
+    public final static String CALL = "api-call";
     private String ws;
 
     private OnMessageReceived onMessageReceived = null;
@@ -277,6 +286,49 @@ public class ClientApi {
                 .setType(Schema.Message.Type.FAAS)
                 .setFaas(faas)
                 .build();
+
         socket.sendBinary(message.toByteArray());
+    }
+
+    public BroadcastReceiver requestReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            String engine = intent.getStringExtra("engine");
+            String func = intent.getStringExtra("func");
+            byte[] args = intent.getByteArrayExtra("args");
+
+            // TODO: Avoid buffering certain engine:func pairs
+            // TODO: Add buffering support
+
+            send(engine, func, args);
+        }
+    };
+
+    public boolean isNetworkConnected(Context context) {
+        ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+
+        NetworkInfo activeNetwork = cm.getActiveNetworkInfo();
+        return activeNetwork != null && activeNetwork.isConnected();
+    }
+
+
+    public class NetworkChangeReceiver extends BroadcastReceiver {
+
+        @Override
+        public void onReceive(final Context context, final Intent intent) {
+            if (isNetworkConnected(context)) connect();
+        }
+    }
+
+    public NetworkChangeReceiver networkChangeReceiver = new NetworkChangeReceiver();
+
+    public static void call(Context context, String engine, String func, byte[] args) {
+        Intent intent = new Intent(CALL);
+
+        intent.putExtra("engine", engine);
+        intent.putExtra("func", func);
+        intent.putExtra("args", args);
+
+        LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
     }
 }
