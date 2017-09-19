@@ -23,19 +23,29 @@ public class ClientApi {
     private OnConnected onConnected = null;
     private OnDisconnected onDisconnected = null;
 
+    private boolean sslAuthenticateHost = true;
+
     private Gson gson = new Gson();
     private boolean isConnected = false, hasRequested = false;
     private WebSocket socket;
 
-    ClientApi(String host, int port, OnMessageReceived onMessageReceived, OnConnected onConnected, OnDisconnected onDisconnected) {
+    ClientApi(String host, int port, boolean sslEnable, OnMessageReceived onMessageReceived, OnConnected onConnected, OnDisconnected onDisconnected) {
         ws = "ws://" + host;
+        if (sslEnable) {
+            ws = "wss://" + host;
+        }
+
         if (port > 0)
             ws += ":"+port;
-        ws += "/rpc/proto";
+        ws += "/api/proto/websocket";
 
         this.onMessageReceived = onMessageReceived;
         this.onConnected = onConnected;
         this.onDisconnected = onDisconnected;
+    }
+
+    public void setSslAuthenticateHost(boolean value) {
+        sslAuthenticateHost = value;
     }
 
     private WebSocketListener listener = new WebSocketListener() {
@@ -218,12 +228,12 @@ public class ClientApi {
         }
     };
 
-    void connect() {
+    public void connect() {
         if (!isConnected && !hasRequested) {
             hasRequested = true;
             Log.d("API", "Connecting to server");
             try {
-                socket = new WebSocketFactory().createSocket(ws);
+                socket = new WebSocketFactory().setVerifyHostname(sslAuthenticateHost).createSocket(ws);
                 socket.connectAsynchronously();
                 socket.addListener(listener);
             } catch (IOException e) {
@@ -244,7 +254,7 @@ public class ClientApi {
         void disconnected();
     }
 
-    class Request {
+    public class Request {
         String engine, func;
         byte[] args;
 
@@ -255,9 +265,9 @@ public class ClientApi {
         }
     }
 
-    boolean isConnected() { return isConnected; }
+    public boolean isConnected() { return isConnected; }
 
-    void send(String engine, String func, byte[] args) {
+    public void send(String engine, String func, byte[] args) {
         Schema.Faas faas = Schema.Faas.newBuilder()
                 .setEngine(engine)
                 .setFunc(func)
